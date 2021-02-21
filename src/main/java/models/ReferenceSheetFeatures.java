@@ -2,27 +2,21 @@ package models;
 
 public class ReferenceSheetFeatures {
 
-    public int heigh;
-    public int width;
+    public int longSize;
+    public int shortSize;
 
     public ReferenceSheetFeatures(int heigh, int width) {
-        this.heigh = heigh;
-        this.width = width;
+        this.longSize = heigh;
+        this.shortSize = width;
     }
 
-    public int getHeigh() {
-        return heigh;
+    public int getLongSize() {
+        return longSize;
     }
 
-    public void setHeigh(int heigh) {
-        this.heigh = heigh;
+    public int getShortSize() {
+        return shortSize;
     }
 
-    public int getWidth() {
-        return width;
-    }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
 }

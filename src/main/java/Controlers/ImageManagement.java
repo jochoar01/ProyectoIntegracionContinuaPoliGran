@@ -8,32 +8,27 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import static Controlers.AdaptationSize.orientationValidator;
 import static Controlers.FileManagement.saveImage;
-import static Controlers.SizeManagement.calculatePercentage;
+import static Controlers.CalculatePecentage.*;
 
 public class ImageManagement {
 
-    public static int MAX_WIDTH = 2000;
-    public static int MAX_HEIGHT = 2000;
+
     public BufferedImage initialImage;
     BufferedImage finalImage;
 
-    public void copyImage(String initialImagePath, String finalImagePath, int heigh, int width ) {
+    public void copyImage(String initialImagePath, String finalImagePath, ReferenceSheetFeatures ReferenceSheetFeatures) {
+        BufferedImage imageToConvert = loadImage(initialImagePath);
 
-        this.initialImage = loadImage(initialImagePath);
-        Image image = new Image(this.initialImage);
-        ReferenceSheetFeatures referenceSheetFeatures = new ReferenceSheetFeatures(heigh,width);
-        double percentage = calculatePercentage(image,referenceSheetFeatures);
+        ReferenceSheetFeatures referenceSheetFeatures = ReferenceSheetFeatures;
 
-
-
-
-
-            this.initialImage = resize(this.initialImage,this.initialImage.getWidth()*(1+(int)percentage), this.initialImage.getHeight()*(1+(int)percentage));
+        int percentage = orientationValidator(imageToConvert, ReferenceSheetFeatures);
+        System.out.println("Nuevo Tamaño :" + imageToConvert.getWidth() * percentage / 100 + " X" + imageToConvert.getHeight() * percentage / 100);
+        BufferedImage newImage = resize(imageToConvert, imageToConvert.getWidth() * percentage / 100, imageToConvert.getHeight() * percentage / 100);
 
 
-
-        saveImage(this.initialImage, finalImagePath);
+        saveImage(newImage, finalImagePath);
     }
 
     public static BufferedImage resize(BufferedImage bufferedImage, int newW, int newH) {
@@ -58,8 +53,6 @@ public class ImageManagement {
         }
         return this.finalImage;
     }
-
-
 
 
 }

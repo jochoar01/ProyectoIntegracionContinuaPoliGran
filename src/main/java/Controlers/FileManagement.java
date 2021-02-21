@@ -5,10 +5,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+
 public class FileManagement {
-
-
-
 
     public static void saveImage(BufferedImage bufferedImage, String pathName) {
         try {
@@ -20,4 +18,7 @@ public class FileManagement {
             e.printStackTrace();
         }
     }
+
+
+
 }

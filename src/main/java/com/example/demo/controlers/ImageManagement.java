@@ -1,16 +1,16 @@
-package Controlers;
+package com.example.demo.controlers;
 
-import models.Image;
-import models.ReferenceSheetFeatures;
+import com.example.demo.models.Image;
+import com.example.demo.models.ReferenceSheetFeatures;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import static Controlers.AdaptationSize.orientationValidator;
-import static Controlers.FileManagement.saveImage;
-import static Controlers.CalculatePecentage.*;
+import static com.example.demo.controlers.AdaptationSize.orientationValidator;
+import static com.example.demo.controlers.FileManagement.saveImage;
+import static com.example.demo.controlers.CalculatePecentage.*;
 
 public class ImageManagement {
 
@@ -18,12 +18,12 @@ public class ImageManagement {
     public BufferedImage initialImage;
     BufferedImage finalImage;
 
-    public void copyImage(String initialImagePath, String finalImagePath, ReferenceSheetFeatures ReferenceSheetFeatures) {
+    public void copyImage(String initialImagePath, String finalImagePath, ReferenceSheetFeatures pReferenceSheetFeatures) {
         BufferedImage imageToConvert = loadImage(initialImagePath);
 
-        ReferenceSheetFeatures referenceSheetFeatures = ReferenceSheetFeatures;
 
-        int percentage = orientationValidator(imageToConvert, ReferenceSheetFeatures);
+
+        int percentage = orientationValidator(imageToConvert,pReferenceSheetFeatures );
         System.out.println("Nuevo Tamaño :" + imageToConvert.getWidth() * percentage / 100 + " X" + imageToConvert.getHeight() * percentage / 100);
         BufferedImage newImage = resize(imageToConvert, imageToConvert.getWidth() * percentage / 100, imageToConvert.getHeight() * percentage / 100);
 

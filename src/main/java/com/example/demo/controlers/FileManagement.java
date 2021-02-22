@@ -1,4 +1,4 @@
-package Controlers;
+package com.example.demo.controlers;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

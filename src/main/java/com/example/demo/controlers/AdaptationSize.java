@@ -1,10 +1,11 @@
-package Controlers;
-import models.Image;
-import models.ReferenceSheetFeatures;
+package com.example.demo.controlers;
+import com.example.demo.models.Image;
+import com.example.demo.models.ReferenceSheetFeatures;
 
 import java.awt.image.BufferedImage;
 
-import static Controlers.CalculatePecentage.calculatePercentage;
+import static com.example.demo.controlers.CalculatePecentage.calculatePercentage;
+
 
 
 public class AdaptationSize {

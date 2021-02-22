@@ -1,4 +1,4 @@
-package Controlers;
+package com.example.demo.controlers;
 
 
 public class CalculatePecentage {

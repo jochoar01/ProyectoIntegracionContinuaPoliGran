@@ -1,6 +1,6 @@
-package Controlers;
+package com.example.demo.controlers;
 
-import models.ReferenceSheetFeatures;
+import com.example.demo.models.ReferenceSheetFeatures;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class filesIteration {
                 ImageManagement imageManagement = new ImageManagement();
                 ReferenceSheetFeatures referenceSheetFeatures = new ReferenceSheetFeatures(1123, 796);
                 String[] nameCurrentFile = files[i].replace("\\", "/").split("/");
-                imageManagement.copyImage(files[i], folderNewImages + nameCurrentFile[nameCurrentFile.length - 1] + ".jpg", referenceSheetFeatures);
+                imageManagement.copyImage(files[i], folderNewImages + "RESIZED_"+nameCurrentFile[nameCurrentFile.length - 1], referenceSheetFeatures);
                 System.out.println("Convertida con el nombre " + nameCurrentFile[nameCurrentFile.length - 1]);
 
                 System.out.println("------------------------------------------------------------------");
@@ -62,4 +62,7 @@ public class filesIteration {
 
         return arr_res;
     }
+
+
+
 }
